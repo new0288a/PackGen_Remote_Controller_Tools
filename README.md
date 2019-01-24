@@ -28,7 +28,9 @@ ___Source Code: ./packetgen.py___<br>
 The packetgen module define a packetgen object to simply control Packetgen software on remote host.
 
 ### packetgen class
+```
 **class** packetgen(self, ip="127.0.0.1", home_directory="/root/packetgen", config_file="my_default", if0_pcap='pcap/large.pcap', if1_pcap='pcap/large.pcap')<br>
+```
 
 Construct a new packetgen object, to startup the remote **"ip"** PacketGen software with **"config_file" **located at **"home_directory" /pktgen-dpdk/cfg"**. And using **"if0_pcap" **and **"if1_pcap" **pcap file as the source by modifing **"config_file"**.<br>
 
