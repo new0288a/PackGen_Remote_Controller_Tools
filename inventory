@@ -1,0 +1,7 @@
+[local_host:vars]
+ansible_connection=ssh
+ansible_user=root
+ansible_ssh_pass=P@ssw0rd
+
+[local_host]
+10.5.95.76

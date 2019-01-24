@@ -1,0 +1,61 @@
+---
+        - hosts: local_host
+          gather_facts: no
+          vars:
+                #myhome: "/root/packetgen" 
+
+          tasks:
+                - name: set home directory(myhome)
+                  set_fact:
+                        myhome: "/root/packetgen"
+                  when: myhome is not defined
+
+                - name: set default file
+                  set_fact:
+                        default_file: "my_default"
+                  when: default_file is not defined
+
+                - name: Install required Linux packages
+                  apt:
+                        name: "{{ item }}"
+                  with_items:
+                        - "python"
+                        - "python-pip"
+                        - "tmux"
+
+                - name: backup default_file
+                  shell: "cp -f {{ myhome }}/pktgen-dpdk/cfg/{{ default_file }}.cfg {{ myhome }}/pktgen-dpdk/cfg/{{ default_file }}.backup"
+                  changed_when: False
+
+                - name: copy replace_pcap_on_cfg_file.py to hosts
+                  template:
+                        src: "./replace_pcap_on_cfg_file.ja2"
+                        dest: "{{ myhome }}/pktgen-dpdk/tools/replace_pcap_on_cfg_file.py"
+
+                - name: run replace_pcap_on_cfg_file.py
+                  shell: "python {{ myhome }}/pktgen-dpdk/tools/replace_pcap_on_cfg_file.py"
+                  register: replace_pcap_output
+                  changed_when: False
+
+                - name: print replace_pcap_output
+                  debug:
+                        msg: "{{ replace_pcap_output }}"
+            
+                - name: kill existing tmux session
+                  shell: "tmux kill-session -t development"
+                  ignore_errors: True
+                  changed_when: False
+
+                - name: create new tmux session
+                  shell: "tmux new-session -s development -n editor -d"
+                  changed_when: False
+
+                - name: Startup PacketGen on tmux
+                  shell: "tmux send-keys -t development 'cd {{ myhome }}/pktgen-dpdk && source ../prepare_env.sh && ./tools/run.py {{ default_file }}' C-m"
+                  changed_when: False                
+
+                #- name: fallback default_file
+                #  shell: "cp -f {{ myhome }}/pktgen-dpdk/cfg/{{ default_file }}.backup {{ myhome }}/pktgen-dpdk/cfg/{{ default_file }}.cfg"
+                #  changed_when: False
+
+
