@@ -49,25 +49,3 @@ class packetgen(object):
 
 
 
-
-##--------------   Example   ------------------
-
-#hostIP = "10.5.95.76"
-
-## my_default.cfg should be located at PacketGen node with path /root/your_packetgen_directory/pktgen-dpdk/cfg/ and be configured properly
-#pg = packetgen(ip=hostIP, config_file="my_default", if0_pcap="/tmp/pcap/dp3-dl-1-64.pcap", if1_pcap="/tmp/pcap/dp3-ul-1-64.pcap")
-
-#pg.set_if1_rate(0.2)
-
-#pg.start_running()
-
-#time.sleep(10)
-
-#pg.stop_running()
-
-#time.sleep(5)
-
-#pg.quit_running()
-
-
-

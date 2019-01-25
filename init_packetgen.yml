@@ -54,8 +54,8 @@
                   shell: "tmux send-keys -t development 'cd {{ myhome }}/pktgen-dpdk && source ../prepare_env.sh && ./tools/run.py {{ default_file }}' C-m"
                   changed_when: False                
 
-                #- name: fallback default_file
-                #  shell: "cp -f {{ myhome }}/pktgen-dpdk/cfg/{{ default_file }}.backup {{ myhome }}/pktgen-dpdk/cfg/{{ default_file }}.cfg"
-                #  changed_when: False
+                - name: fallback default_file
+                  shell: "cp -f {{ myhome }}/pktgen-dpdk/cfg/{{ default_file }}.backup {{ myhome }}/pktgen-dpdk/cfg/{{ default_file }}.cfg"
+                  changed_when: False
 
 
