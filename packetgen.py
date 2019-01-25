@@ -19,7 +19,7 @@ class packetgen(object):
 		if returncode != 0:
 			raise Exception("Something Error on Ansible Playbook Process")
 
-		time.sleep(10)
+		time.sleep(7)
 
 	def start_running(self):
 		#start_lua_config = self.lua_config_1 + 'pktgen.start("0"..",".."1");' + self.lua_config_2 + self.ip + ":" + "22022"
