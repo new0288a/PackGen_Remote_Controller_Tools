@@ -83,30 +83,30 @@ The input attribute **"info"** is a object of **dict **constructed of three main
 ***packet_info***
 **type:** dict
 It is contained the information of selected pcap file
-> **dp:** specify which data plane pcap file will be used
-**dl_size: **specify which size pcap file on downlink will be used
-**ul_size: **specify which size pcap file on uplink will be used
-**sub_start: ** specify the start index of range for spliting the pcap file
-**sub_end: ** specify the end index of range for spliting the pcap file
+> **dp:** specify which data plane pcap file will be used<br>
+**dl_size: **specify which size pcap file on downlink will be used<br>
+**ul_size: **specify which size pcap file on uplink will be used<br>
+**sub_start: ** specify the start index of range for spliting the pcap file<br>
+**sub_end: ** specify the end index of range for spliting the pcap file<br>
 
 ***pg_info***
 **type:** dict
 It is contained the information of packetgen remote host
-> **ip: ** specify the remote packetgen IP
-**home_directory: ** specify the path of packetgen root directory
-**config_file: **specify the packetgen configuration file name without .cfg. Which locate at **/root/{{ home_directory }}/pktgen-dpdk/cfg**. It should be configured properly first.
-**eif0_IP: ** specify source IP of packet in uplink pcap file
-**eif1_IP: ** specify source IP of packet in downlink pcap file
-**eif0_mac: ** specify source MAC address of packet in uplink pcap file
-**eif1_mac: ** specify source MAC address of packet in uplink pcap file
+> **ip: ** specify the remote packetgen IP<br>
+**home_directory: ** specify the path of packetgen root directory<br>
+**config_file: **specify the packetgen configuration file name without .cfg. Which locate at **/root/{{ home_directory }}/pktgen-dpdk/cfg**. It should be configured properly first.<br>
+**eif0_IP: ** specify source IP of packet in uplink pcap file<br>
+**eif1_IP: ** specify source IP of packet in downlink pcap file<br>
+**eif0_mac: ** specify source MAC address of packet in uplink pcap file<br>
+**eif1_mac: ** specify source MAC address of packet in uplink pcap file<br>
 
 ***dp_info***
 **type:** dict
 It is contained the information of EPC data-plane host
-> **S1U_IP: ** specify the distination IP of packet in uplink pcap file
-> **SGI_IP: ** specify the distination IP of packet in downlink pcap file
-> **S1U_mac ** specify the distination MAC address of packet in uplink pcap file
-> **SGI_IP: ** specify the distination MAC address of packet in downlink pcap file
+> **S1U_IP: ** specify the distination IP of packet in uplink pcap file<br>
+> **SGI_IP: ** specify the distination IP of packet in downlink pcap file<br>
+> **S1U_mac ** specify the distination MAC address of packet in uplink pcap file<br>
+> **SGI_IP: ** specify the distination MAC address of packet in downlink pcap file<br>
 
 #### Example
 Here is a example of using ngco_packetgen function to create packetgen object, and then startup packetgen, control packet transfer and quit the packetgen program.
