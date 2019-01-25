@@ -32,7 +32,7 @@ The packetgen module define a packetgen object to simply control Packetgen softw
 class packetgen(self, ip="127.0.0.1", home_directory="/root/packetgen", config_file="my_default", if0_pcap='pcap/large.pcap', if1_pcap='pcap/large.pcap')
 ```
 
-Construct a new packetgen object, to startup the remote **"ip"** PacketGen software with  **"config_file" ** located at **"home_directory" /pktgen-dpdk/cfg"**. And using **"if0_pcap" **and **"if1_pcap" **pcap file as the source by modifing **"config_file"**.<br>
+Construct a new packetgen object, to startup the remote **"ip"** PacketGen software with  **"config_file"** located at **"home_directory" /pktgen-dpdk/cfg"**. And using **"if0_pcap"**and **"if1_pcap"**pcap file as the source by modifing **"config_file"**.<br>
 
 packetgen class provide the following method:
 
@@ -69,7 +69,7 @@ pg.quit_running()
 ## ngco_packetgen Library
 ### ngco_packetgen - PacketGen control tools for EPC performance testing
 ___Source Code: ./ngco_packetgen.py___<br>
-The ngco_packetgen module define a function to create a packetgen object with modified pcap file**(source file locate at ./pcap)** for EPC performance testing
+The ngco_packetgen module define a function to create a packetgen object with modified pcap file **(source file locate at ./pcap)** for EPC performance testing
 
 ### create_ngco_packetgen function
 ```
@@ -78,7 +78,7 @@ def create_ngco_packetgen(info)
 
 It will return a packetgen object. Before retrun, specified pcap file which come from ./pcap will be modified to meet the EPC testing environment and then be sent to packetgen host. Two line with pcap location in specified **"config_file"** on packetgen host will be replaced by the modified pcap location<br>
 
-The input attribute **"info"** is a object of **dict **constructed of three main parts
+The input attribute **"info"** is a object of **dict** constructed of three main parts
 
 ***packet_info***<br>
 **type:** dict<br>
