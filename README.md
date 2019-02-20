@@ -100,7 +100,7 @@ It is contained the information of packetgen remote host
 
 > **home_directory:** specify the path of packetgen root directory<br>
 
-> **config_file:** specify the packetgen configuration file name without .cfg. Which locate at **/root/{{ home_directory }}/pktgen-dpdk/cfg**. It should be configured properly first.<br>
+> **config_file:** specify the packetgen configuration file name without .cfg. Which locate at **{{ home_directory }}/pktgen-dpdk/cfg**. It should be configured properly first.<br>
 
 > **eif0_IP:** specify source IP of packet in uplink pcap file<br>
 
