@@ -63,7 +63,7 @@ def create_ngco_packetgen(info):
 		raise Exception("Raise Error when copy file" + ul_editcp_output_file_path + " to " + info['pg_info']['ip'] + ", ", output)
 
 
-	pg = packetgen.packetgen(ip=info['pg_info']['ip'], config_file=info['pg_info']['config_file'], \
-				if0_pcap=ul_editcp_output_file_path, if1_pcap=dl_editcp_output_file_path)
+	#pg = packetgen.packetgen(ip=info['pg_info']['ip'], config_file=info['pg_info']['config_file'], \
+	pg = packetgen.packetgen(if0_pcap=ul_editcp_output_file_path, if1_pcap=dl_editcp_output_file_path, **info['pg_info'])
 	
 	return pg

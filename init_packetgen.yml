@@ -42,16 +42,17 @@
                         msg: "{{ replace_pcap_output }}"
             
                 - name: kill existing tmux session
-                  shell: "tmux kill-session -t development"
+                  shell: "tmux kill-session -t {{ host_ip }}_{{ host_port }}"
                   ignore_errors: True
                   changed_when: False
 
                 - name: create new tmux session
-                  shell: "tmux new-session -s development -n editor -d"
+                  shell: "tmux new-session -s {{ host_ip }}_{{ host_port }} -n editor -d"
                   changed_when: False
 
                 - name: Startup PacketGen on tmux
-                  shell: "tmux send-keys -t development 'cd {{ myhome }}/pktgen-dpdk && source ../prepare_env.sh && ./tools/run.py {{ default_file }}' C-m"
+                  #shell: "tmux send-keys -t development 'cd {{ myhome }}/pktgen-dpdk && source ../prepare_env.sh && ./tools/run.py {{ default_file }}' C-m"
+                  shell: "tmux send-keys -t {{ host_ip }}_{{ host_port }} 'cd {{ myhome }}/pktgen-dpdk && source {{ env_file }} && ./tools/run.py {{ default_file }}' C-m"
                   changed_when: False                
 
                 - name: Pause for 3 seconds

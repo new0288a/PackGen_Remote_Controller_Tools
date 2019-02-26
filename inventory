@@ -4,4 +4,4 @@ ansible_user=root
 ansible_ssh_pass=P@ssw0rd
 
 [local_host]
-10.5.95.76
+127.0.0.1
