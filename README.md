@@ -15,10 +15,11 @@ There is a enhanced tools for EPC testing. It will modify pcap file which locate
 - PacketGen configuration file should be configured with just only using two port for packet transfer and receive.
 
 #### Ansible Host
-- scoat
+install below software
+- socat
 - ansible
 - python
-- wireshark-common/wireshark
+- wireshark-common(ubuntu)/wireshark(Centos)
 - tcpreplay
 
 
